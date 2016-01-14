@@ -1,0 +1,10 @@
+env
+**/pip-selfcheck.json
+
+*.sublime-project
+*.sublime-workspace
+
+*.pyc
+*.pyo
+
+*.sqlite3
