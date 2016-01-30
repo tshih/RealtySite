@@ -8,3 +8,7 @@ def index(request):
 
 	indexTextFields = dict(WebTextField.objects.filter(web_Page__page_Name="Index").values_list('text_Field_Name', 'text'))
 	return render(request, 'srFrontend/index.html',indexTextFields)
+
+def about(request):
+	aboutTextFields = dict(WebTextField.objects.filter(web_Page__page_Name="About").values_list('text_Field_Name', 'text'))
+	return render(request, 'srFrontend/about.html', aboutTextFields)
