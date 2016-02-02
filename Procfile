@@ -1,1 +1,1 @@
-web: cd ShihsRealty; gunicorn ShihsRealty.wsgi --log-file -
+web: cd ShihsRealty; python manage.py migrate; gunicorn ShihsRealty.wsgi --log-file -
