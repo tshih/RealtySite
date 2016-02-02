@@ -15,6 +15,6 @@ try:
 except ImportError:
     SETTINGS_DIR=os.path.abspath(os.path.dirname(__file__))
     generate_secret_key(os.path.join(SETTINGS_DIR, 'secret_key.py'))
-    from secret_key import *
+    from .secret_key import *
 
-STATIC_ROOT = "ShihsRealty/staticfiles"
+STATIC_ROOT = "ShihsRealty/ShihsRealty/staticfiles"
