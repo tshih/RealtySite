@@ -20,7 +20,7 @@ except ImportError:
 
 STATIC_ROOT = "ShihsRealty/ShihsRealty/staticfiles"
 
-
+DATABASES = {}
 DATABASES['default'] =  dj_database_url.config()
 
 # Enable Persistent Connections
