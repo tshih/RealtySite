@@ -1,1 +1,1 @@
-web: python ShihsRealty/manage.py runserver
+web: cd ShihsRealty; gunicorn ShihsRealty.wsgi --log-file -
