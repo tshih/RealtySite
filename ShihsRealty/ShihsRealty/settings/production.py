@@ -5,7 +5,7 @@ from django.utils.crypto import get_random_string
 def generate_secret_key(filename):
 
 	chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
-	secret_key = "SECRET_KEY = \'" + crypto.get_random_string(50, chars) + "\'"
+	secret_key = "SECRET_KEY = \'" + get_random_string(50, chars) + "\'"
 	fd = open(filename, 'w')
 	fd.write(secret_key)
 	fd.close()
