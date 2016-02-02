@@ -8,3 +8,5 @@ env
 *.pyo
 
 *.sqlite3
+
+static
