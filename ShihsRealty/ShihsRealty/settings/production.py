@@ -1,10 +1,11 @@
 import os
-from .base import *
+
 from django.utils.crypto import get_random_string
 import dj_database_url
 
-def generate_secret_key(filename):
+from .base import *
 
+def generate_secret_key(filename):
 	chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
 	secret_key = "SECRET_KEY = \'" + get_random_string(50, chars) + "\'"
 	fd = open(filename, 'w')
