@@ -1,7 +1,9 @@
 from django import forms
 
 class ContactForm(forms.Form):
-	name = forms.CharField(required=True)
-	email = forms.EmailField(required=True)
-	phone_number = forms.CharField(required=False)
-	content = forms.CharField(required=True)
+	textWidget = forms.TextInput(attrs={'class': 'form-control'})
+	messageWidget = forms.Textarea(attrs={'class': 'form-control', 'rows': '6'})
+	name = forms.CharField(required=True, widget=textWidget)
+	email = forms.EmailField(required=True, widget=textWidget)
+	phone_number = forms.CharField(required=False, widget=textWidget)
+	message = forms.CharField(required=True, widget=messageWidget)
