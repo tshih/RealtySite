@@ -44,7 +44,7 @@
                     </h2>
                     <hr>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, vitae, distinctio, possimus repudiandae cupiditate ipsum excepturi dicta neque eaque voluptates tempora veniam esse earum sapiente optio deleniti consequuntur eos voluptatem.</p>
-                    <form role="form" method="POST">
+                    <form role="form" method="POST" id="contactForm">
                         <div class="row">
                             {% csrf_token %}
                             <div class="form-group col-lg-4">
@@ -73,16 +73,66 @@
                                 <textarea class="form-control" rows="6"></textarea> -->
                             </div>
                             <div class="form-group col-lg-12">
-                                <input type="hidden" name="save" value="contact">
-                                <button type="submit" class="btn btn-default">Submit</button>
+                                <!-- <input type="button" name="save" value="Submit" class="btn btn-default" /> -->
+                                <button type="submit" class="btn btn-default" id="submitButton">Submit</button>
                             </div>
-
                         </div>
                     </form>
                 </div>
             </div>
         </div>
 
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Thank you!</h4>
+              </div>
+              <div class="modal-body">
+                blah
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
+
 {% endblock %}
     <!-- /.container -->
+{% block endcontent %}
+    <script src="{% static "srFrontend/js/jquery.form.min.js" %}"></script>
+
+    <script>
+        $(document).ready(function() { 
+            $('#contactForm').ajaxForm({
+                url: '/contact.html/',
+                success : function (response) {
+                    console.log("SUCCESS: calling modal");
+
+                    $('#myModal').modal
+                    $('#myModal').modal();
+                },
+                // complete : function (response) {
+                //     console.log("COMPLETE: calling modal");
+                //     // $('#myModal').modal();
+                // },
+                error : function (response) {
+                    console.log("ERROR: calling modal");
+                    console.log(response);
+                    // $('#myModal').modal();
+                }
+            }); 
+            // bind 'myForm' and provide a simple callback function 
+            $('#contactForm').submit(function() { 
+                // submit the form 
+                $(this).ajaxSubmit(); 
+                // return false to prevent normal browser submit and page navigation 
+                return false; 
+            });
+        }); 
+
+    </script>
+{% endblock %}
